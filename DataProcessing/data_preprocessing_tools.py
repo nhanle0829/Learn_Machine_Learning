@@ -10,8 +10,9 @@ print(f"{X}\n\n{y}\n")
 
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
-imputer.fit(X[:, 1:3])
-X[:, 1:3] = imputer.transform(X[:, 1:3])
+# imputer.fit(X[:, 1:3])
+# X[:, 1:3] = imputer.transform(X[:, 1:3])
+X[:, 1:3] = imputer.fit_transform(X[:, 1:3])
 print("Taking care of missing values")
 print(f"{X}\n")
 
@@ -21,3 +22,9 @@ ct = ColumnTransformer(transformers=[("encoder", OneHotEncoder(), [0])], remaind
 X = np.array(ct.fit_transform(X))
 print("Encoding independent variable")
 print(f"{X}\n")
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y = le.fit_transform(y)
+print("Encoding dependent variable")
+print(f"{y}\n")
