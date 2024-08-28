@@ -28,3 +28,23 @@ le = LabelEncoder()
 y = le.fit_transform(y)
 print("Encoding dependent variable")
 print(f"{y}\n")
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+print("Splitting dataset into train set and test set")
+print(f"{X_train}\n\n{y_train}\n\n{X_test}\n\n{y_test}\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
