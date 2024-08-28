@@ -34,17 +34,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 print("Splitting dataset into train set and test set")
 print(f"{X_train}\n\n{y_train}\n\n{X_test}\n\n{y_test}\n")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train[:, 3:] = sc.fit_transform(X_train[:, 3:])
+X_test[:, 3:] = sc.transform(X_test[:, 3:])
+print("Feature scaling")
+print(f"{X_train}\n\n{X_test}\n")
