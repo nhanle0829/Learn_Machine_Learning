@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from pandas.core.common import random_state
 
 dataset = pd.read_csv("Data.csv") # Replace "Data.csv" with your dataset name
 X = dataset.iloc[:, :-1].values
