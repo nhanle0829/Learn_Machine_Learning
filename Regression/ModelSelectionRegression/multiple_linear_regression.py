@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-dataset = pd.read_csv("Data.csv") #Replace "Data.csv" with your dataset name
+dataset = pd.read_csv("Data.csv") # Replace "Data.csv" with your dataset name
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
