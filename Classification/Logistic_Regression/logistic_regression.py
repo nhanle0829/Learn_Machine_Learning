@@ -22,3 +22,8 @@ print(classifier.predict(sc.transform([[30, 87000]])))
 
 y_pred = classifier.predict(X_test)
 print(np.concatenate((y_test.reshape(-1, 1), y_pred.reshape(-1, 1)), axis=1))
+
+from sklearn.metrics import confusion_matrix, accuracy_score
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+print(accuracy_score(y_test, y_pred))
