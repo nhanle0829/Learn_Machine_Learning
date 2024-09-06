@@ -14,3 +14,10 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
+classifier.fit(X_train, y_train)
+
+print(classifier.predict(sc.transform([[30,87000]])))
+y_pred = classifier.predict(X_test)
+print(np.concatenate((y_pred.reshape(-1,1), y_test.reshape(-1,1)),axis=1))
