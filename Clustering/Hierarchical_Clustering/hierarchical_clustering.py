@@ -11,3 +11,7 @@ plt.title("Dendrogram")
 plt.xlabel("Customers")
 plt.ylabel("Euclidian Distances")
 plt.show()
+
+from sklearn.cluster import AgglomerativeClustering
+hc = AgglomerativeClustering(n_clusters=5, metric="euclidean", linkage="ward")
+y_hc = hc.fit_predict(X)
