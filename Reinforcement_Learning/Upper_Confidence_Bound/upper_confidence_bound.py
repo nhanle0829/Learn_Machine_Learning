@@ -30,6 +30,7 @@ for n in range(N):
     sums_of_reward[ad] += reward
     total_reward += reward
 
+print(total_reward)
 plt.hist(ads_selected)
 plt.title("Histogram of Ads Selections")
 plt.xlabel("Ads")
