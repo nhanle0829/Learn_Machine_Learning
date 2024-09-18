@@ -24,8 +24,14 @@ for n in range(N):
         if upper_bound > max_upper_bound:
             max_upper_bound = upper_bound
             ad = i
-    ads_selected.append(ad)
+    ads_selected.append(ad + 1)
     numbers_of_selections[ad] += 1
     reward = dataset.iloc[n, ad]
     sums_of_reward[ad] += reward
     total_reward += reward
+
+plt.hist(ads_selected)
+plt.title("Histogram of Ads Selections")
+plt.xlabel("Ads")
+plt.ylabel("Number of Ads Selections")
+plt.show()
