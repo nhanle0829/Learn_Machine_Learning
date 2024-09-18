@@ -20,9 +20,15 @@ for n in range(N):
         if beta_random > max_random:
             ad = i
             max_random = beta_random
-    ads_selected.append(ad)
+    ads_selected.append(ad + 1)
     if dataset.iloc[n, ad] == 0:
         numbers_of_reward_0[ad] += 1
     else:
         numbers_of_reward_1[ad] += 1
         total_reward += 1
+
+plt.hist(ads_selected)
+plt.title("Histogram of Ads Selections")
+plt.xlabel("Ads")
+plt.ylabel("Numbers of Ads Selections")
+plt.show()
