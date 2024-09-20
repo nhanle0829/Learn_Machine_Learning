@@ -14,6 +14,10 @@ for i in range(1000):
     review = re.sub("[^a-zA-Z]", " ", dataset["Review"][i])
     review = review.lower().split()
     ps = PorterStemmer()
-    review = [ps.stem(word) for word in review if word not in set(stopwords.words("english"))]
+    all_stopwords = stopwords.words("english")
+    all_stopwords.remove("not")
+    review = [ps.stem(word) for word in review if word not in set(all_stopwords)]
     review = ' '.join(review)
     corpus.append(review)
+
+print(corpus[:5])
