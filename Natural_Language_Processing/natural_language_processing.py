@@ -44,8 +44,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # classifier.fit(X_train, y_train)
 
 # Kernel SVM Model
-from sklearn.svm import SVC
-classifier = SVC(kernel="rbf", random_state=0)
+# from sklearn.svm import SVC
+# classifier = SVC(kernel="rbf", random_state=0)
+# classifier.fit(X_train, y_train)
+
+# Logistic Regression Model
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state=0)
 classifier.fit(X_train, y_train)
 
 y_pred = classifier.predict(X_test)
