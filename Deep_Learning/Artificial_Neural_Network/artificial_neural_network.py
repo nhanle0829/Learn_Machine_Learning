@@ -35,3 +35,10 @@ ann.add(keras.layers.Dense(units=1, activation="sigmoid"))
 
 ann.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
 ann.fit(X_train, y_train, batch_size=32, epochs=100)
+
+ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]]) > 0.5)
+
+y_pred = ann.predict(X_test)
+y_pred = y_pred > 0.5
+print(np.concatenate((y_test.reshape(-1, 1), y_pred.reshape(-1, 1)), axis=1))
+
