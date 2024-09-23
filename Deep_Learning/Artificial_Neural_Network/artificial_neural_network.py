@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+import keras
 
 print(tf.__version__)
 
@@ -24,3 +25,10 @@ from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
+
+ann = keras.models.Sequential()
+
+ann.add(keras.layers.Dense(units=6, activation="relu"))
+ann.add(keras.layers.Dense(units=6, activation="relu"))
+
+ann.add(keras.layers.Dense(units=1, activation="sigmoid"))
