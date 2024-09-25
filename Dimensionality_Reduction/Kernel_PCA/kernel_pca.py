@@ -19,4 +19,7 @@ k_pca = KernelPCA(n_components=2, kernel="rbf")
 X_train = k_pca.fit_transform(X_train)
 X_test = k_pca.transform(X_test)
 
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state=0)
+classifier.fit(X_train, y_train)
 
