@@ -18,3 +18,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 lda = LinearDiscriminantAnalysis(n_components=2)
 X_train = lda.fit_transform(X_train)
 X_test = lda.transform(X_test)
+
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state=0)
+classifier.fit(X_train, y_train)
