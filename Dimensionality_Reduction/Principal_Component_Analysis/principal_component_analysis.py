@@ -22,3 +22,8 @@ X_test = pca.transform(X_test)
 from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression(random_state=0)
 classifier.fit(X_train, y_train)
+
+from sklearn.metrics import confusion_matrix, accuracy_score
+y_pred = classifier.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(accuracy_score(y_test, y_pred))
