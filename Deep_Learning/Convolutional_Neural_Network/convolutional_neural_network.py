@@ -62,3 +62,29 @@ cnn.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
 
 # Training the CNN on the Training set and evaluating it on the Test set
 cnn.fit(x=training_set, validation_data=test_set, epochs=25)
+
+print(training_set.class_names)
+
+# Part 4 - Making a single prediction
+import numpy as np
+
+test_image_1 = keras.utils.load_img("dataset/single_prediction/cat_or_dog_1.jpg", target_size=(64, 64))
+test_image_1 = keras.utils.img_to_array(test_image_1)
+test_image_1 = np.expand_dims(test_image_1, axis=0)
+result_1 = cnn.predict(test_image_1)
+if result_1[0][0] == 0:
+    prediction_1 = "cat"
+else:
+    prediction_1 = "dog"
+
+test_image_2 = keras.utils.load_img("dataset/single_prediction/cat_or_dog_2.jpg", target_size=(64, 64))
+test_image_2 = keras.utils.img_to_array(test_image_2)
+test_image_2 = np.expand_dims(test_image_2, axis=0)
+result_2 = cnn.predict(test_image_2)
+if result_2[0][0] == 0:
+    prediction_2 = "cat"
+else:
+    prediction_2 = "dog"
+
+print(f"Cat or Dog 1: {prediction_1}")
+print(f"Cat or Dog 2: {prediction_2}")
