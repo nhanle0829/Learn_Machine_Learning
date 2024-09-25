@@ -13,3 +13,8 @@ from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
+
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+lda = LinearDiscriminantAnalysis(n_components=2)
+X_train = lda.fit_transform(X_train)
+X_test = lda.transform(X_test)
