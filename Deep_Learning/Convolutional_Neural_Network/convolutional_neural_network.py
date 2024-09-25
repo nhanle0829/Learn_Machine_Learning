@@ -18,6 +18,7 @@ training_set = keras.preprocessing.image_dataset_from_directory(
     batch_size=32,
     label_mode='binary'
 )
+print(training_set.class_names)
 
 training_set = training_set.map(lambda x, y: (train_datagen(x, training=True), y))
 
@@ -62,8 +63,6 @@ cnn.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
 
 # Training the CNN on the Training set and evaluating it on the Test set
 cnn.fit(x=training_set, validation_data=test_set, epochs=25)
-
-print(training_set.class_names)
 
 # Part 4 - Making a single prediction
 import numpy as np
